@@ -213,6 +213,10 @@ function closeInfo() {
   settings.accelerationOrbit = 1;
   isZoomingOut = true;
   controls.target.set(0, 0, 0);
+  
+  // Clear active state in navigation
+  const navItems = document.querySelectorAll('#planet-nav li');
+  navItems.forEach(item => item.classList.remove('active'));
 }
 window.closeInfo = closeInfo;
 // close info when clicking another planet
@@ -658,8 +662,116 @@ pluto.planet.receiveShadow = true;
 
 
 
-function animate(){
+// ******  PLANET NAVIGATION PANEL  ******
+function setupPlanetNavigation() {
+  const navItems = document.querySelectorAll('#planet-nav li');
+  const highlightedPlanet = { current: null };
 
+  navItems.forEach(item => {
+    // Hover effect
+    item.addEventListener('mouseenter', function() {
+      const planetName = this.getAttribute('data-planet');
+      highlightPlanet(planetName, true);
+      highlightedPlanet.current = planetName;
+    });
+
+    item.addEventListener('mouseleave', function() {
+      if (highlightedPlanet.current) {
+        highlightPlanet(highlightedPlanet.current, false);
+        highlightedPlanet.current = null;
+      }
+    });
+
+    // Click navigation
+    item.addEventListener('click', function() {
+      const planetName = this.getAttribute('data-planet');
+      navigateToPlanet(planetName);
+      
+      // Update active state in navigation
+      navItems.forEach(navItem => navItem.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+}
+
+function highlightPlanet(planetName, highlight) {
+  let targetPlanet;
+  
+  // Find the planet object by name
+  switch(planetName) {
+    case 'About Me': targetPlanet = mercury; break;
+    case 'Education': targetPlanet = venus; break;
+    case 'Skills': targetPlanet = earth; break;
+    case 'Experience': targetPlanet = mars; break;
+    case 'Projects': targetPlanet = jupiter; break;
+    case 'Services': targetPlanet = saturn; break;
+    case 'Testimonials': targetPlanet = uranus; break;
+    case 'Interests': targetPlanet = neptune; break;
+    case 'Contact': targetPlanet = pluto; break;
+  }
+
+  if (targetPlanet) {
+    if (highlight) {
+      // Add to outline pass to highlight
+      if (targetPlanet.Atmosphere) {
+        outlinePass.selectedObjects = [targetPlanet.planet, targetPlanet.Atmosphere];
+      } else {
+        outlinePass.selectedObjects = [targetPlanet.planet];
+      }
+    } else {
+      // Remove highlight
+      outlinePass.selectedObjects = [];
+    }
+  }
+}
+
+function navigateToPlanet(planetName) {
+  let targetPlanet;
+  
+  // Find the planet object by name
+  switch(planetName) {
+    case 'About Me': targetPlanet = mercury; break;
+    case 'Education': targetPlanet = venus; break;
+    case 'Skills': targetPlanet = earth; break;
+    case 'Experience': targetPlanet = mars; break;
+    case 'Projects': targetPlanet = jupiter; break;
+    case 'Services': targetPlanet = saturn; break;
+    case 'Testimonials': targetPlanet = uranus; break;
+    case 'Interests': targetPlanet = neptune; break;
+    case 'Contact': targetPlanet = pluto; break;
+  }
+
+  if (targetPlanet) {
+    selectedPlanet = targetPlanet;
+    closeInfoNoZoomOut();
+    
+    settings.accelerationOrbit = 0; // Stop orbital movement
+
+    // Determine appropriate offset based on planet size
+    if (targetPlanet === jupiter || targetPlanet === saturn) {
+      offset = 50;
+    } else if (targetPlanet === venus || targetPlanet === earth || targetPlanet === uranus) {
+      offset = 25;
+    } else if (targetPlanet === mars || targetPlanet === neptune) {
+      offset = 15;
+    } else {
+      offset = 10;
+    }
+
+    // Update camera to look at the selected planet
+    const planetPosition = new THREE.Vector3();
+    targetPlanet.planet.getWorldPosition(planetPosition);
+    controls.target.copy(planetPosition);
+    camera.lookAt(planetPosition);
+
+    targetCameraPosition.copy(planetPosition).add(camera.position.clone().sub(planetPosition).normalize().multiplyScalar(offset));
+    isMovingTowardsPlanet = true;
+  }
+}
+
+// ****** OUTLINES ON PLANETS ******
+// Modified outline handling in the animate function
+function animate(){
   //rotating planets around the sun and itself
   sun.rotateY(0.001 * settings.acceleration);
   mercury.planet.rotateY(0.001 * settings.acceleration);
@@ -683,7 +795,8 @@ function animate(){
   pluto.planet.rotateY(0.001 * settings.acceleration)
   pluto.planet3d.rotateY(0.00006 * settings.accelerationOrbit)
 
-// Animate Earth's moon
+  // Animate moons and other elements
+  // Animate Earth's moon
 if (earth.moons) {
   earth.moons.forEach(moon => {
     const time = performance.now();
@@ -733,46 +846,61 @@ asteroids.forEach(asteroid => {
   asteroid.position.z = asteroid.position.z * Math.cos(0.0001 * settings.accelerationOrbit) - asteroid.position.x * Math.sin(0.0001 * settings.accelerationOrbit);
 });
 
-// ****** OUTLINES ON PLANETS ******
-raycaster.setFromCamera(mouse, camera);
-
-// Check for intersections
-var intersects = raycaster.intersectObjects(raycastTargets);
-
-// Reset all outlines
-outlinePass.selectedObjects = [];
-
-if (intersects.length > 0) {
-  const intersectedObject = intersects[0].object;
-
-  // If the intersected object is an atmosphere, find the corresponding planet
-  if (intersectedObject === earth.Atmosphere) {
-    outlinePass.selectedObjects = [earth.planet];
-  } else if (intersectedObject === venus.Atmosphere) {
-    outlinePass.selectedObjects = [venus.planet];
-  } else {
-    // For other planets, outline the intersected object itself
-    outlinePass.selectedObjects = [intersectedObject];
+// Handle planet highlighting
+// Only check for mouse hover if no menu item is currently highlighting a planet
+let isNavigationHighlighting = document.querySelector('#planet-nav li:hover') !== null;
+  
+if (!isNavigationHighlighting) {
+  raycaster.setFromCamera(mouse, camera);
+  var intersects = raycaster.intersectObjects(raycastTargets);
+  
+  // Reset outlines if no navigation highlighting is active
+  outlinePass.selectedObjects = [];
+  
+  if (intersects.length > 0) {
+    const intersectedObject = intersects[0].object;
+    
+    if (intersectedObject === earth.Atmosphere) {
+      outlinePass.selectedObjects = [earth.planet];
+    } else if (intersectedObject === venus.Atmosphere) {
+      outlinePass.selectedObjects = [venus.planet];
+    } else {
+      outlinePass.selectedObjects = [intersectedObject];
+    }
   }
 }
-// ******  ZOOM IN/OUT  ******
-if (isMovingTowardsPlanet) {
-  // Smoothly move the camera towards the target position
-  camera.position.lerp(targetCameraPosition, 0.03);
 
-  // Check if the camera is close to the target position
-  if (camera.position.distanceTo(targetCameraPosition) < 1) {
-      isMovingTowardsPlanet = false;
-      showPlanetInfo(selectedPlanet.name);
+  // ******  ZOOM IN/OUT  ******
+  if (isMovingTowardsPlanet) {
+    // Smoothly move the camera towards the target position
+    camera.position.lerp(targetCameraPosition, 0.03);
 
+    // Check if the camera is close to the target position
+    if (camera.position.distanceTo(targetCameraPosition) < 1) {
+        isMovingTowardsPlanet = false;
+        showPlanetInfo(selectedPlanet.name);
+        
+        // Update active state in navigation
+        const navItems = document.querySelectorAll('#planet-nav li');
+        navItems.forEach(item => {
+          if (item.getAttribute('data-planet') === selectedPlanet.name) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+    }
+  } else if (isZoomingOut) {
+    camera.position.lerp(zoomOutTargetPosition, 0.05);
+
+    if (camera.position.distanceTo(zoomOutTargetPosition) < 1) {
+        isZoomingOut = false;
+        
+        // Clear active state in navigation when zooming out
+        const navItems = document.querySelectorAll('#planet-nav li');
+        navItems.forEach(item => item.classList.remove('active'));
+    }
   }
-} else if (isZoomingOut) {
-  camera.position.lerp(zoomOutTargetPosition, 0.05);
-
-  if (camera.position.distanceTo(zoomOutTargetPosition) < 1) {
-      isZoomingOut = false;
-  }
-}
 
   controls.update();
   requestAnimationFrame(animate);
@@ -780,6 +908,7 @@ if (isMovingTowardsPlanet) {
 }
 loadAsteroids('/asteroids/asteroidPack.glb', 1000, 130, 160);
 loadAsteroids('/asteroids/asteroidPack.glb', 3000, 352, 370);
+setupPlanetNavigation(); // Add this line
 animate();
 
 window.addEventListener('mousemove', onMouseMove, false);

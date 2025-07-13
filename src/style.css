@@ -186,3 +186,94 @@ p {
     background-color: rgba(255,255,255,0.1);
     transform: translateX(5px);
 }
+
+#planet-nav {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 35, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    max-width: 200px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-out;
+    transform-origin: bottom right;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#planet-nav:hover {
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.02);
+}
+
+#planet-nav h3 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+#planet-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#planet-nav li {
+    color: #ccc;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    font-size: 0.9em;
+}
+
+#planet-nav li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateX(-5px);
+}
+
+#planet-nav li.active {
+    background-color: rgba(255, 255, 100, 0.2);
+    color: lightyellow;
+    font-weight: bold;
+}
+
+.planet-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.9em;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+#planet-nav li:hover .planet-icon {
+    transform: scale(1.3);
+}
+
+#planet-nav li.active .planet-icon {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}

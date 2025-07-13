@@ -101,9 +101,9 @@ customContainer.appendChild(gui.domElement);
 
 // ****** SETTINGS FOR INTERACTIVE CONTROLS  ******
 const settings = {
-  accelerationOrbit: 1,
-  acceleration: 1,
-  sunIntensity: 1.9
+  accelerationOrbit: 4,
+  acceleration: 3.5,
+  sunIntensity: 2.0,
 };
 
 gui.add(settings, 'accelerationOrbit', 0, 10).onChange(value => {

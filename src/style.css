@@ -1,0 +1,188 @@
+#instructions {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 35, 0.7);
+    padding: 10px 20px;
+    border-radius: 30px;
+    z-index: 10;
+    text-align: center;
+    animation: fadeInOut 3s ease-in-out infinite;
+}
+
+#instructions p {
+    margin: 0;
+    color: white;
+    font-size: 1em;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+#header {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    max-width: 40%;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: white;
+}
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.planet-info {
+    display: none;
+    position: fixed;
+    left: 1%; 
+    top: 25%; 
+    width: 30%; 
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.planet-info-content {
+    background-color: rgba(0, 0, 35, 0.8);
+    padding: 20px;
+    border: 1px solid #888;
+    box-shadow: 0px 0px 15px 5px rgba(255,255,255,0.3);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto; /* For scrolling */
+    border-radius: 10px;
+    max-height: 70vh;
+}
+
+.close-btn {
+    color: lightyellow;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: white; 
+    cursor: pointer;
+}
+
+h2 {
+    color: lightyellow; 
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+}
+
+p {
+    color: white; 
+    line-height: 1.5; 
+}
+
+.section-icon {
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
+.skill-bar {
+    background-color: rgba(255,255,255,0.2);
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-level {
+    background-color: rgba(255,255,100,0.7);
+    height: 10px;
+    border-radius: 5px;
+    position: relative;
+    animation: skillFill 1.5s ease-out;
+}
+
+@keyframes skillFill {
+    from { width: 0; }
+}
+
+.project-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s;
+}
+
+.project-item:hover {
+    transform: translateX(5px);
+}
+
+.project-title {
+    font-weight: bold;
+    color: lightyellow;
+    position: relative;
+}
+
+.project-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: lightyellow;
+    transition: width 0.3s;
+}
+
+.project-item:hover .project-title::after {
+    width: 100%;
+}
+
+.contact-link {
+    display: block;
+    color: lightyellow;
+    margin: 10px 0;
+    text-decoration: none;
+    transition: transform 0.3s;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.contact-link:hover {
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}

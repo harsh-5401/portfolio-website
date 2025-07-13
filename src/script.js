@@ -906,9 +906,174 @@ if (!isNavigationHighlighting) {
   requestAnimationFrame(animate);
   composer.render();
 }
+// ******  KEYBOARD AND TOUCH NAVIGATION  ******
+function setupKeyboardNavigation() {
+  // Current focused planet index
+  let currentPlanetIndex = -1; // -1 means no planet is focused
+  const planets = [mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto];
+  const planetNames = ['About Me', 'Education', 'Skills', 'Experience', 'Projects', 'Services', 'Testimonials', 'Interests', 'Contact'];
+  
+  // Handle keyboard navigation
+  document.addEventListener('keydown', function(event) {
+    // Arrow keys navigation
+    if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
+      // Move to next planet
+      currentPlanetIndex = (currentPlanetIndex + 1) % planets.length;
+      navigateToPlanet(planetNames[currentPlanetIndex]);
+      showKeyboardFeedback('right');
+      event.preventDefault();
+    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
+      // Move to previous planet
+      currentPlanetIndex = (currentPlanetIndex - 1 + planets.length) % planets.length;
+      navigateToPlanet(planetNames[currentPlanetIndex]);
+      showKeyboardFeedback('left');
+      event.preventDefault();
+    } else if (event.key === 'Escape') {
+      // Return to overview
+      closeInfo();
+      showKeyboardFeedback('escape');
+      event.preventDefault();
+    }
+  });
+  
+  // Function to show visual feedback for keyboard navigation
+  function showKeyboardFeedback(direction) {
+    // Find the key element to highlight
+    let keyElement;
+    if (direction === 'right') {
+      keyElement = document.querySelector('.key:nth-child(2)'); // Right arrow
+    } else if (direction === 'left') {
+      keyElement = document.querySelector('.key:nth-child(1)'); // Left arrow
+    } else if (direction === 'escape') {
+      keyElement = document.querySelector('.key-hint:nth-child(2) .key'); // ESC key
+    }
+    
+    if (keyElement) {
+      // Add active class
+      keyElement.classList.add('key-active');
+      
+      // Remove active class after animation
+      setTimeout(() => {
+        keyElement.classList.remove('key-active');
+      }, 300);
+    }
+    
+    // Also highlight the corresponding planet in the navigation
+    if (currentPlanetIndex >= 0) {
+      const navItems = document.querySelectorAll('#planet-nav li');
+      navItems.forEach((item, index) => {
+        if (index === currentPlanetIndex) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+  }
+  
+  // Add touch swipe support
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  
+  document.addEventListener('touchstart', function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+    touchStartY = event.changedTouches[0].screenY;
+  }, false);
+  
+  document.addEventListener('touchend', function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+    touchEndY = event.changedTouches[0].screenY;
+    handleSwipe();
+  }, false);
+  
+  function handleSwipe() {
+    const horizontalDiff = touchEndX - touchStartX;
+    const verticalDiff = touchEndY - touchStartY;
+    
+    // Detect horizontal or vertical swipe based on which has greater magnitude
+    if (Math.abs(horizontalDiff) > Math.abs(verticalDiff)) {
+      // Horizontal swipe
+      if (horizontalDiff > 50) {
+        // Swipe right - previous planet
+        currentPlanetIndex = (currentPlanetIndex - 1 + planets.length) % planets.length;
+        navigateToPlanet(planetNames[currentPlanetIndex]);
+        showKeyboardFeedback('left');
+      } else if (horizontalDiff < -50) {
+        // Swipe left - next planet
+        currentPlanetIndex = (currentPlanetIndex + 1) % planets.length;
+        navigateToPlanet(planetNames[currentPlanetIndex]);
+        showKeyboardFeedback('right');
+      }
+    } else {
+      // Vertical swipe
+      if (verticalDiff > 50) {
+        // Swipe down - previous planet
+        currentPlanetIndex = (currentPlanetIndex - 1 + planets.length) % planets.length;
+        navigateToPlanet(planetNames[currentPlanetIndex]);
+        showKeyboardFeedback('left');
+      } else if (verticalDiff < -50) {
+        // Swipe up - next planet
+        currentPlanetIndex = (currentPlanetIndex + 1) % planets.length;
+        navigateToPlanet(planetNames[currentPlanetIndex]);
+        showKeyboardFeedback('right');
+      }
+    }
+  }
+  
+  // Track wheel events for touchpad navigation
+  document.addEventListener('wheel', function(event) {
+    // Debounce wheel events to prevent too rapid navigation
+    if (wheelTimeout) clearTimeout(wheelTimeout);
+    
+    wheelTimeout = setTimeout(() => {
+      // Determine direction based on deltaY
+      if (event.deltaY > 20) {
+        // Scroll down - next planet
+        currentPlanetIndex = (currentPlanetIndex + 1) % planets.length;
+        navigateToPlanet(planetNames[currentPlanetIndex]);
+        showKeyboardFeedback('right');
+      } else if (event.deltaY < -20) {
+        // Scroll up - previous planet
+        currentPlanetIndex = (currentPlanetIndex - 1 + planets.length) % planets.length;
+        navigateToPlanet(planetNames[currentPlanetIndex]);
+        showKeyboardFeedback('left');
+      }
+    }, 150); // Debounce time in ms
+  }, { passive: true });
+  
+  // Update current planet index when planet is selected through other means
+  const updateCurrentPlanetIndex = function(planetName) {
+    const index = planetNames.indexOf(planetName);
+    if (index !== -1) {
+      currentPlanetIndex = index;
+    }
+  };
+  
+  // Override the existing navigateToPlanet function to track the current planet
+  const originalNavigateToPlanet = navigateToPlanet;
+  navigateToPlanet = function(planetName) {
+    originalNavigateToPlanet(planetName);
+    updateCurrentPlanetIndex(planetName);
+  };
+  
+  // Override closeInfo to reset currentPlanetIndex
+  const originalCloseInfo = closeInfo;
+  closeInfo = function() {
+    originalCloseInfo();
+    currentPlanetIndex = -1;
+  };
+}
+
+// Variable for wheel event debouncing
+let wheelTimeout;
+
+// Initialize planet navigation after everything else is loaded
 loadAsteroids('/asteroids/asteroidPack.glb', 1000, 130, 160);
 loadAsteroids('/asteroids/asteroidPack.glb', 3000, 352, 370);
-setupPlanetNavigation(); // Add this line
+setupPlanetNavigation();
+setupKeyboardNavigation(); // Add this line
 animate();
 
 window.addEventListener('mousemove', onMouseMove, false);

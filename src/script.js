@@ -537,7 +537,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Foundation',
         distance: 'Starting Point',
         moons: 'Core Skills',
-        info: 'About Me: I am a passionate developer with a strong foundation in computer science and a love for creating interactive experiences. My journey in tech started with a curiosity about how things work, which led me to pursue a career in software development.'
+        info: '<strong>🚀 Tech Innovator & Team Leader</strong><br><br>I\'m a <span style="color:#4CAF50;font-weight:bold;">Full Stack Developer</span> currently spearheading technology initiatives at <span style="color:#2196F3;font-weight:bold;">Wisit Digital</span>, where we\'re revolutionizing AI-powered hiring solutions. I thrive on solving complex problems through first-principle thinking and have a proven track record of delivering high-impact solutions.<br><br>With expertise in <span style="color:#FF9800;font-weight:bold;">JavaScript, React, Node.js, MongoDB, and AWS</span>, I\'ve successfully led cross-functional teams across Frontend, Backend, Machine Learning, and DevOps domains. My approach combines technical excellence with strategic vision to build scalable products that make a meaningful difference.<br><br><div style="text-align:center;"><a href="/resume.pdf" download class="resume-button"><span style="margin-right:5px;">📄</span>Download My Resume</a></div>'
     },
     'Education': {
         radius: 'Second Planet',
@@ -546,7 +546,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Learning Path',
         distance: 'Knowledge Base',
         moons: 'Degrees & Certifications',
-        info: 'Education: Bachelor\'s in Computer Science with a focus on interactive media. Additional certifications in web development, UI/UX design, and cloud computing. Constantly learning through online courses and hands-on projects to stay current with industry trends.'
+        info: '<strong>🎓 Academic Excellence</strong><br><br><span style="color:#2196F3;font-weight:bold;">Bachelor of Technology</span> in Electronics and Communication Engineering<br><span style="color:#FF9800;font-weight:bold;">Indian Institute of Information Technology, Kalyani</span> (2022 - Present)<br><span style="color:#4CAF50;font-weight:bold;">CGPA: 8.5/10.0</span><br><br>Beyond formal education, I\'m a self-driven learner constantly exploring emerging technologies through hands-on projects, technical workshops, and online resources. This proactive approach to learning has enabled me to stay at the cutting edge of tech innovation and quickly adapt to new frameworks and tools.'
     },
     'Skills': {
         radius: 'Third Planet',
@@ -555,7 +555,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Expertise Areas',
         distance: 'Competency Level',
         moons: 'Tools & Technologies',
-        info: '<div><strong>Technical Skills:</strong><br><br>Frontend: HTML5, CSS3, JavaScript, React, Vue.js<br><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>Backend: Node.js, Express, Python, Django<br><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>Database: MongoDB, PostgreSQL, Firebase<br><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>Other: Git, Docker, AWS, Three.js<br><div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div></div>'
+        info: '<div><strong>Technical Skills:</strong><br><br>Languages: C/C++ (Data Structures & Algorithms), Python, JavaScript (ES6+), TypeScript, Dart<br><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>Frontend: React.js, Redux, HTML5, CSS3, TailwindCSS, Flutter<br><div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>Backend & Databases: Node.js, Express.js, RESTful APIs, MongoDB, Firebase, SQL, Redis<br><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>Developer Tools: Git, GitHub, VS Code, Postman, Docker, CI/CD, AWS, Jira<br><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>Libraries: WebSockets, Pandas, NumPy, scikit-learn, Axios, Mongoose, Jest, React Testing Library<br><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div>'
     },
     'Experience': {
         radius: 'Fourth Planet',
@@ -564,7 +564,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Career Path',
         distance: 'Professional Journey',
         moons: 'Roles & Positions',
-        info: '<strong>Professional Experience:</strong><br><br>Senior Developer at Tech Innovations (2020-Present)<br>- Led development of interactive web applications<br>- Implemented 3D visualizations using Three.js<br>- Improved site performance by 40%<br><br>Web Developer at Digital Solutions (2018-2020)<br>- Built responsive websites for various clients<br>- Developed custom CMS solutions<br>- Collaborated with design team on UI/UX improvements'
+        info: '<strong>💼 Professional Experience</strong><br><br><span style="color:#2196F3;font-weight:bold;">Software Developer Intern</span> | Wisit Digital Innovation (March 2025-Present)<br>• <span style="color:#4CAF50;">Engineered</span> a React.js-based SaaS trading dashboard with Zerodha Kite WebSocket integration<br>• <span style="color:#4CAF50;">Optimized</span> real-time data streaming for 100+ instruments achieving <span style="color:#FF9800;font-weight:bold;"><200ms latency</span><br>• <span style="color:#4CAF50;">Implemented</span> advanced React performance techniques (useRef, memoization, virtualization)<br>• <span style="color:#4CAF50;">Delivered</span> <span style="color:#FF9800;font-weight:bold;">60% reduction</span> in rendering time and <span style="color:#FF9800;font-weight:bold;">40% decrease</span> in order failures<br><br><span style="color:#2196F3;font-weight:bold;">Technical Lead</span> | Status Code 0, MLH Affiliated Hackathon (Jan 2023-Mar 2023)<br>• <span style="color:#4CAF50;">Led</span> cross-functional team of 12 members for event with <span style="color:#FF9800;font-weight:bold;">250+ participants</span><br>• <span style="color:#4CAF50;">Architected</span> high-performance registration system handling <span style="color:#FF9800;font-weight:bold;">3500+ applications</span> with <span style="color:#FF9800;font-weight:bold;">99.9% uptime</span><br>• <span style="color:#4CAF50;">Secured</span> <span style="color:#FF9800;font-weight:bold;">$5000+</span> in sponsorships, increasing event budget by <span style="color:#FF9800;font-weight:bold;">70%</span>'
     },
     'Projects': {
         radius: 'Largest Planet',
@@ -573,7 +573,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Showcases',
         distance: 'Achievements',
         moons: 'Notable Works',
-        info: '<strong>Featured Projects:</strong><br><br><div class="project-item"><span class="project-title">3D Interactive Portfolio</span><br>A space-themed portfolio using Three.js with interactive elements and custom shaders.</div><div class="project-item"><span class="project-title">E-Commerce Platform</span><br>Full-stack online store with payment processing, inventory management, and analytics dashboard.</div><div class="project-item"><span class="project-title">Weather Visualization App</span><br>Real-time weather data visualization with interactive maps and forecasting.</div>'
+        info: '<strong>🏆 Featured Projects</strong><br><br><div class="project-item" style="margin-bottom:20px;padding:15px;border-left:4px solid #2196F3;background:rgba(33,150,243,0.1);"><span class="project-title" style="color:#2196F3;font-weight:bold;font-size:1.2em;">E-Learning Platform (StudyNotion)</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> React.js, Node.js, Express.js, MongoDB<br><br>• Complete MERN stack platform supporting <span style="color:#4CAF50;font-weight:bold;">1000+ concurrent users</span><br>• Implemented secure JWT authentication with <span style="color:#4CAF50;font-weight:bold;">100% protection</span> against common vulnerabilities<br>• Integrated Razorpay payment gateway with <span style="color:#4CAF50;font-weight:bold;">1.2s average checkout time</span><br>• Achieved <span style="color:#4CAF50;font-weight:bold;">95+ Lighthouse score</span> and <span style="color:#4CAF50;font-weight:bold;">65% faster</span> media loading times<br><a href="https://github.com/harsh-5401/Megaproject-frontent-backend-Public" target="_blank" style="display:inline-block;margin-top:10px;background:#2196F3;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;">View on GitHub</a></div><div class="project-item" style="margin-bottom:20px;padding:15px;border-left:4px solid #4CAF50;background:rgba(76,175,80,0.1);"><span class="project-title" style="color:#4CAF50;font-weight:bold;font-size:1.2em;">ANIBUD - Wildlife Conservation App</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> Flutter, Firebase, Google Maps API, TensorFlow Lite<br><br>• Cross-platform mobile app with offline-capable location tracking (<span style="color:#4CAF50;font-weight:bold;"><5% data loss</span>)<br>• Custom image recognition system with <span style="color:#4CAF50;font-weight:bold;">85% match accuracy</span><br>• Optimized for <span style="color:#4CAF50;font-weight:bold;">100+ simultaneous reports</span> with <span style="color:#4CAF50;font-weight:bold;"><2s response time</span><br>• <span style="color:#FF9800;font-weight:bold;">🏅 Won 1st place</span> among 50+ teams at MLH StatusCode0 Hackathon<br><a href="https://github.com/harsh-5401/Anibud" target="_blank" style="display:inline-block;margin-top:10px;background:#4CAF50;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;">View on GitHub</a></div><div class="project-item" style="padding:15px;border-left:4px solid #FF9800;background:rgba(255,152,0,0.1);"><span class="project-title" style="color:#FF9800;font-weight:bold;font-size:1.2em;">3D Interactive Space Portfolio</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> Three.js, JavaScript, HTML5/CSS3<br><br>• Immersive 3D space-themed portfolio with interactive planetary navigation<br>• Custom shader implementation for realistic planet rendering and atmospheric effects<br>• Responsive design with keyboard, mouse, and touch controls for seamless exploration</div>'
     },
     'Services': {
         radius: 'Ringed Planet',
@@ -582,7 +582,16 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Solutions',
         distance: 'Capabilities',
         moons: 'Expertise Areas',
-        info: '<strong>Services I Offer:</strong><br><br>- Custom Web Application Development<br>- Interactive 3D Visualizations<br>- Frontend UI/UX Implementation<br>- Full-Stack Development<br>- Performance Optimization<br>- Responsive Design<br>- API Integration<br>- Technical Consultation'
+        info: '<strong>🛠️ Specialized Services</strong><br><br><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:15px;">' + 
+        '<div style="flex:1;min-width:45%;background:rgba(33,150,243,0.1);padding:12px;border-radius:5px;border-left:3px solid #2196F3;margin-bottom:10px;"><span style="color:#2196F3;font-weight:bold;">Full-Stack Development</span><br>Complete solutions with React.js, Node.js, and MongoDB</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(76,175,80,0.1);padding:12px;border-radius:5px;border-left:3px solid #4CAF50;margin-bottom:10px;"><span style="color:#4CAF50;font-weight:bold;">Frontend Excellence</span><br>Responsive UI/UX with React and TailwindCSS</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(255,152,0,0.1);padding:12px;border-radius:5px;border-left:3px solid #FF9800;margin-bottom:10px;"><span style="color:#FF9800;font-weight:bold;">Mobile Development</span><br>Cross-platform apps with Flutter and Firebase</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(156,39,176,0.1);padding:12px;border-radius:5px;border-left:3px solid #9C27B0;margin-bottom:10px;"><span style="color:#9C27B0;font-weight:bold;">Real-time Solutions</span><br>WebSocket implementation for live applications</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(244,67,54,0.1);padding:12px;border-radius:5px;border-left:3px solid #F44336;margin-bottom:10px;"><span style="color:#F44336;font-weight:bold;">API Development</span><br>RESTful services and third-party integrations</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(0,150,136,0.1);padding:12px;border-radius:5px;border-left:3px solid #009688;margin-bottom:10px;"><span style="color:#009688;font-weight:bold;">Performance Optimization</span><br>Speed enhancements and code efficiency</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(63,81,181,0.1);padding:12px;border-radius:5px;border-left:3px solid #3F51B5;margin-bottom:10px;"><span style="color:#3F51B5;font-weight:bold;">Technical Leadership</span><br>Team guidance and project management</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(121,85,72,0.1);padding:12px;border-radius:5px;border-left:3px solid #795548;margin-bottom:10px;"><span style="color:#795548;font-weight:bold;">Database Architecture</span><br>Schema design and query optimization</div>' + 
+        '</div>'
     },
     'Testimonials': {
         radius: 'Tilted Planet',
@@ -591,7 +600,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Reviews',
         distance: 'Endorsements',
         moons: 'Success Stories',
-        info: '<strong>What People Say:</strong><br><br>"Working with this developer was an exceptional experience. Their technical expertise and creative problem-solving transformed our project." - Tech Startup CEO<br><br>"Delivered beyond expectations with attention to detail and innovative solutions." - Marketing Director<br><br>"Reliable, communicative, and highly skilled. Would definitely work with again." - Project Manager'
+        info: '<strong>🏅 Leadership & Achievements</strong><br><br><div style="background:rgba(33,150,243,0.1);padding:15px;border-radius:5px;margin-bottom:15px;border-left:4px solid #2196F3;"><span style="color:#2196F3;font-weight:bold;font-size:1.1em;">Peer Mentor - Programming Club</span> (2023-2024)<br><br>Led <span style="color:#FF9800;font-weight:bold;">10+ technical workshops</span> on web development, training <span style="color:#4CAF50;font-weight:bold;">60+ students</span> and creating comprehensive learning materials. Workshops covered React.js, Node.js, and full-stack development principles, with consistently positive participant feedback.</div><div style="background:rgba(76,175,80,0.1);padding:15px;border-radius:5px;margin-bottom:15px;border-left:4px solid #4CAF50;"><span style="color:#4CAF50;font-weight:bold;font-size:1.1em;">Codathon Finalist</span> (2022)<br><br>Ranked in the <span style="color:#FF9800;font-weight:bold;">top 5%</span> among 200 participants in algorithmic programming contest. Successfully solved <span style="color:#FF9800;font-weight:bold;">8/10 advanced DSA problems</span>, demonstrating strong algorithmic thinking and optimization skills.</div><div style="background:rgba(255,152,0,0.1);padding:15px;border-radius:5px;border-left:4px solid #FF9800;"><span style="color:#FF9800;font-weight:bold;font-size:1.1em;">Inter-IIIT Cricket Tournament</span> (2023)<br><br>Demonstrated leadership as team captain, guiding our institute to a <span style="color:#4CAF50;font-weight:bold;">Top 5 finish</span> among 15 competing institutes. Showcased strategic planning, team coordination, and performance under pressure.</div>'
     },
     'Interests': {
         radius: 'Blue Planet',
@@ -600,7 +609,29 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Passions',
         distance: 'Personal Side',
         moons: 'After Hours',
-        info: '<strong>Beyond Coding:</strong><br><br>When not immersed in code, I enjoy astronomy and space exploration, which inspired this portfolio design. I\'m also passionate about photography, hiking, and playing guitar. I believe these diverse interests enhance my creativity and problem-solving approach in development work.'
+        info: '<strong>🌟 Beyond Coding</strong><br><br><div style="display:flex;flex-wrap:wrap;gap:15px;margin-top:10px;">' + 
+        '<div style="flex:1;min-width:45%;text-align:center;padding:15px;background:rgba(33,150,243,0.1);border-radius:8px;">' + 
+        '<span style="font-size:24px;">🔍</span><br>' + 
+        '<span style="color:#2196F3;font-weight:bold;">Tech Exploration</span><br>' + 
+        '<span style="font-size:0.9em;">Constantly researching emerging technologies and industry trends</span>' + 
+        '</div>' + 
+        '<div style="flex:1;min-width:45%;text-align:center;padding:15px;background:rgba(76,175,80,0.1);border-radius:8px;">' + 
+        '<span style="font-size:24px;">🧠</span><br>' + 
+        '<span style="color:#4CAF50;font-weight:bold;">First-Principle Thinking</span><br>' + 
+        '<span style="font-size:0.9em;">Breaking down complex problems to their fundamental truths</span>' + 
+        '</div>' + 
+        '<div style="flex:1;min-width:45%;text-align:center;padding:15px;background:rgba(255,152,0,0.1);border-radius:8px;">' + 
+        '<span style="font-size:24px;">🏏</span><br>' + 
+        '<span style="color:#FF9800;font-weight:bold;">Cricket</span><br>' + 
+        '<span style="font-size:0.9em;">Team captain with leadership experience in competitive tournaments</span>' + 
+        '</div>' + 
+        '<div style="flex:1;min-width:45%;text-align:center;padding:15px;background:rgba(156,39,176,0.1);border-radius:8px;">' + 
+        '<span style="font-size:24px;">📚</span><br>' + 
+        '<span style="color:#9C27B0;font-weight:bold;">Continuous Learning</span><br>' + 
+        '<span style="font-size:0.9em;">Self-driven education through tech videos, articles, and hands-on projects</span>' + 
+        '</div>' + 
+        '</div>' + 
+        '<p style="margin-top:15px;">These diverse interests fuel my creativity and enhance my problem-solving approach, bringing fresh perspectives to technical challenges and team collaboration.</p>'
     },
     'Contact': {
         radius: 'Dwarf Planet',
@@ -609,7 +640,13 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Connect',
         distance: 'Reach Out',
         moons: 'Communication',
-        info: '<strong>Let\'s Connect:</strong><br><br><a href="mailto:your.email@example.com" class="contact-link">📧 your.email@example.com</a><a href="https://linkedin.com/in/yourprofile" class="contact-link">🔗 LinkedIn: /in/yourprofile</a><a href="https://github.com/yourusername" class="contact-link">💻 GitHub: @yourusername</a><a href="https://twitter.com/yourhandle" class="contact-link">🐦 Twitter: @yourhandle</a><br><br>I\'m currently <span style="color: #5cff5c;">available</span> for freelance work and exciting collaborations. Feel free to reach out if you have an interesting project in mind or just want to chat about web development, 3D graphics, or space!'
+        info: '<strong>📲 Let\'s Connect</strong><br><br><div style="text-align:center;margin-bottom:20px;"><div style="display:inline-block;background:#4CAF50;color:white;padding:12px 20px;border-radius:30px;font-weight:bold;margin-bottom:20px;"><span style="margin-right:8px;">🚀</span>Available for Exciting Tech Opportunities</div></div><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;">' +
+        '<a href="mailto:Harshsingh200777@gmail.com" class="contact-link" style="text-decoration:none;flex:1;min-width:200px;background:rgba(244,67,54,0.1);padding:15px;border-radius:8px;text-align:center;border:1px solid rgba(244,67,54,0.3);color:#F44336;font-weight:bold;"><span style="font-size:24px;display:block;margin-bottom:5px;">📧</span>Harshsingh200777@gmail.com</a>' +
+        '<a href="https://linkedin.com/in/harsh-dhakar-fullstack" target="_blank" class="contact-link" style="text-decoration:none;flex:1;min-width:200px;background:rgba(33,150,243,0.1);padding:15px;border-radius:8px;text-align:center;border:1px solid rgba(33,150,243,0.3);color:#2196F3;font-weight:bold;"><span style="font-size:24px;display:block;margin-bottom:5px;">🔗</span>LinkedIn Profile</a>' +
+        '<a href="https://github.com/harsh-5401" target="_blank" class="contact-link" style="text-decoration:none;flex:1;min-width:200px;background:#;padding:15px;border-radius:8px;text-align:center;border:1px solid rgba(33,33,33,0.3);color:#333;font-weight:bold;"><span style="font-size:24px;display:block;margin-bottom:5px;">💻</span>GitHub: @harsh-5401</a>' +
+        '</div>' +
+        '<p style="text-align:center;margin-top:20px;">I\'m currently leading the Tech at Wisit Digital with a mission to revolutionize how the world hires with AI.<br>Feel free to connect with me for all things tech or just to say hello!<br><br><span style="color:#4CAF50;font-weight:bold;">Let\'s shape the future of tech together. 🌟</span></p>' +
+        '<div style="text-align:center;margin-top:20px;"><a href="/resume.pdf" download class="resume-button" style="background:#FF9800;"><span style="margin-right:8px;">📄</span>Download Full Resume</a></div>'
     }
 };
 

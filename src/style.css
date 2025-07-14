@@ -56,8 +56,9 @@ body {
     display: none;
     position: fixed;
     left: 1%; 
-    top: 25%; 
-    width: 30%; 
+    top: 15%; /* Adjusted from 25% to 15% to give more vertical space */
+    width: 35%; /* Slightly wider for better content display */
+    max-height: 75vh; /* Control maximum height */
     z-index: 1;
     border-radius: 10px;
     overflow: hidden;
@@ -76,15 +77,37 @@ body {
 }
 
 .planet-info-content {
-    background-color: rgba(0, 0, 35, 0.8);
-    padding: 20px;
-    border: 1px solid #888;
-    box-shadow: 0px 0px 15px 5px rgba(255,255,255,0.3);
-    color: white;
-    font-family: 'Arial', sans-serif;
-    overflow-y: auto; /* For scrolling */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 25px; /* Adjusted padding */
     border-radius: 10px;
-    max-height: 70vh;
+    max-width: 100%; /* Use full width of container */
+    margin: 0;
+    color: #fff;
+    max-height: 75vh; /* Match container height */
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2); /* For Firefox */
+}
+
+/* Custom scrollbar for WebKit browsers */
+.planet-info-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.planet-info-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.planet-info-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.planet-info-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .close-btn {
@@ -119,41 +142,32 @@ p {
 }
 
 .skill-bar {
-    background-color: rgba(255,255,255,0.2);
-    height: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    position: relative;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    margin: 5px 0 15px 0;
     overflow: hidden;
 }
 
 .skill-level {
-    background-color: rgba(255,255,100,0.7);
-    height: 10px;
-    border-radius: 5px;
-    position: relative;
-    animation: skillFill 1.5s ease-out;
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    border-radius: 4px;
 }
 
-@keyframes skillFill {
-    from { width: 0; }
-}
-
+/* Fix for project items */
 .project-item {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: transform 0.3s;
-}
-
-.project-item:hover {
-    transform: translateX(5px);
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    overflow: hidden; /* Ensure content stays within borders */
 }
 
 .project-title {
     font-weight: bold;
-    color: lightyellow;
-    position: relative;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .project-title::after {
@@ -171,20 +185,42 @@ p {
     width: 100%;
 }
 
+.resume-button {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block !important;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.resume-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background: #5cb85c !important;
+}
+
+/* Fix for contact links */
 .contact-link {
     display: block;
-    color: lightyellow;
     margin: 10px 0;
-    text-decoration: none;
-    transition: transform 0.3s;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Ensure content stays within borders */
 }
 
 .contact-link:hover {
-    text-decoration: none;
-    background-color: rgba(255,255,255,0.1);
-    transform: translateX(5px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #planet-nav {
@@ -274,11 +310,16 @@ p {
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
+    50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
 
+.highlight-pulse {
+    animation: pulse 2s infinite;
+}
+
 #keyboard-controls {
+    display: none;
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -342,4 +383,80 @@ p {
     0% { transform: translateY(0); }
     50% { transform: translateY(-2px); }
     100% { transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .planet-info {
+        left: 5%;
+        width: 90%;
+        top: 10%;
+    }
+    
+    .planet-info-content {
+        padding: 15px;
+    }
+    
+    .project-item, .contact-link {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+    
+    /* Ensure flex containers wrap properly on mobile */
+    div[style*="display:flex"], div[style*="display: flex"] {
+        flex-wrap: wrap !important;
+    }
+    
+    /* Ensure items in flex containers take full width on mobile */
+    div[style*="flex:1"], div[style*="flex: 1"] {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+    }
+}
+
+/* Fix for flex containers and cards in planet info sections */
+.planet-info-content div[style*="display:flex"],
+.planet-info-content div[style*="display: flex"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+.planet-info-content div[style*="flex:1"],
+.planet-info-content div[style*="flex: 1"] {
+    flex: 1 1 45% !important;
+    min-width: 45% !important;
+    margin-bottom: 10px !important;
+}
+
+/* Ensure proper spacing in project items */
+.planet-info-content .project-item {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 15px !important;
+}
+
+/* Ensure all links are properly styled and visible */
+.planet-info-content a {
+    display: inline-block !important;
+    text-decoration: none !important;
+}
+
+/* Ensure proper spacing and visibility of contact section */
+.planet-info-content div[style*="text-align:center"],
+.planet-info-content div[style*="text-align: center"] {
+    width: 100% !important;
+    margin: 15px 0 !important;
+    clear: both !important;
+}
+
+/* Ensure all content is visible with proper spacing */
+.planet-info-content p, 
+.planet-info-content div, 
+.planet-info-content span, 
+.planet-info-content a {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
 }

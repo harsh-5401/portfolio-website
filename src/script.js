@@ -7,6 +7,9 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 
+// Resume URL constant - Edit this to update the resume link throughout the portfolio
+const RESUME_URL = "https://drive.google.com/file/d/1m2ifgR-YQUDx3pHBJ7GTNUuzWHl0cOMY/view?usp=sharing";
+
 import bgTexture1 from '/images/1.jpg';
 import bgTexture2 from '/images/2.jpg';
 import bgTexture3 from '/images/3.jpg';
@@ -101,8 +104,8 @@ customContainer.appendChild(gui.domElement);
 
 // ****** SETTINGS FOR INTERACTIVE CONTROLS  ******
 const settings = {
-  accelerationOrbit: 4,
-  acceleration: 3.5,
+  accelerationOrbit: 2,
+  acceleration: 0.5,
   sunIntensity: 2.0,
 };
 
@@ -520,7 +523,7 @@ const saturn = new createPlanet('Services', 58/4, 270, 26, saturnTexture, null, 
   outerRadius: 29, 
   texture: satRingTexture
 });
-const uranus = new createPlanet('Testimonials', 25/4, 320, 82, uranusTexture, null, {
+const uranus = new createPlanet('Achievements', 25/4, 320, 82, uranusTexture, null, {
   innerRadius: 6, 
   outerRadius: 8, 
   texture: uraRingTexture
@@ -537,7 +540,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Foundation',
         distance: 'Starting Point',
         moons: 'Core Skills',
-        info: '<strong>🚀 Tech Innovator & Team Leader</strong><br><br>I\'m a <span style="color:#4CAF50;font-weight:bold;">Full Stack Developer</span> currently spearheading technology initiatives at <span style="color:#2196F3;font-weight:bold;">Wisit Digital</span>, where we\'re revolutionizing AI-powered hiring solutions. I thrive on solving complex problems through first-principle thinking and have a proven track record of delivering high-impact solutions.<br><br>With expertise in <span style="color:#FF9800;font-weight:bold;">JavaScript, React, Node.js, MongoDB, and AWS</span>, I\'ve successfully led cross-functional teams across Frontend, Backend, Machine Learning, and DevOps domains. My approach combines technical excellence with strategic vision to build scalable products that make a meaningful difference.<br><br><div style="text-align:center;"><a href="/resume.pdf" download class="resume-button"><span style="margin-right:5px;">📄</span>Download My Resume</a></div>'
+        info: '<strong>🚀 Tech Innovator & Team Leader</strong><br><br>I\'m a <span style="color:#4CAF50;font-weight:bold;">Full Stack Developer</span> currently spearheading technology initiatives at <span style="color:#2196F3;font-weight:bold;">Wisit Digital</span>, where we\'re revolutionizing AI-powered hiring solutions. I thrive on solving complex problems through first-principle thinking and have a proven track record of delivering high-impact solutions.<br><br>With expertise in <span style="color:#FF9800;font-weight:bold;">JavaScript, React, Node.js, MongoDB, and AWS</span>, I\'ve successfully led cross-functional teams across Frontend, Backend, Machine Learning, and DevOps domains. My approach combines technical excellence with strategic vision to build scalable products that make a meaningful difference.<br><br><div style="text-align:center;"><a href="' + RESUME_URL + '" target="_blank" class="resume-button"><span style="margin-right:5px;">📄</span>View My Resume</a></div>'
     },
     'Education': {
         radius: 'Second Planet',
@@ -555,7 +558,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Expertise Areas',
         distance: 'Competency Level',
         moons: 'Tools & Technologies',
-        info: '<div><strong>Technical Skills:</strong><br><br>Languages: C/C++ (Data Structures & Algorithms), Python, JavaScript (ES6+), TypeScript, Dart<br><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>Frontend: React.js, Redux, HTML5, CSS3, TailwindCSS, Flutter<br><div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>Backend & Databases: Node.js, Express.js, RESTful APIs, MongoDB, Firebase, SQL, Redis<br><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>Developer Tools: Git, GitHub, VS Code, Postman, Docker, CI/CD, AWS, Jira<br><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>Libraries: WebSockets, Pandas, NumPy, scikit-learn, Axios, Mongoose, Jest, React Testing Library<br><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div>'
+        info: '<div><strong>Technical Skills:</strong><br><br>Languages: C/C++ (Data Structures & Algorithms), Python, JavaScript (ES6+), TypeScript<br><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>Frontend: React.js, Redux, HTML5, CSS3, TailwindCSS<br><div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>Backend & Databases: Node.js, Express.js, RESTful APIs, MongoDB, Firebase<br><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>Developer Tools: Git, GitHub, VS Code, Postman, Docker, CI/CD, AWS<br><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>Libraries: WebSockets, Pandas, NumPy, scikit-learn, Axios, Mongoose<br><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div>'
     },
     'Experience': {
         radius: 'Fourth Planet',
@@ -573,7 +576,7 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         orbit: 'Showcases',
         distance: 'Achievements',
         moons: 'Notable Works',
-        info: '<strong>🏆 Featured Projects</strong><br><br><div class="project-item" style="margin-bottom:20px;padding:15px;border-left:4px solid #2196F3;background:rgba(33,150,243,0.1);"><span class="project-title" style="color:#2196F3;font-weight:bold;font-size:1.2em;">E-Learning Platform (StudyNotion)</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> React.js, Node.js, Express.js, MongoDB<br><br>• Complete MERN stack platform supporting <span style="color:#4CAF50;font-weight:bold;">1000+ concurrent users</span><br>• Implemented secure JWT authentication with <span style="color:#4CAF50;font-weight:bold;">100% protection</span> against common vulnerabilities<br>• Integrated Razorpay payment gateway with <span style="color:#4CAF50;font-weight:bold;">1.2s average checkout time</span><br>• Achieved <span style="color:#4CAF50;font-weight:bold;">95+ Lighthouse score</span> and <span style="color:#4CAF50;font-weight:bold;">65% faster</span> media loading times<br><a href="https://github.com/harsh-5401/Megaproject-frontent-backend-Public" target="_blank" style="display:inline-block;margin-top:10px;background:#2196F3;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;">View on GitHub</a></div><div class="project-item" style="margin-bottom:20px;padding:15px;border-left:4px solid #4CAF50;background:rgba(76,175,80,0.1);"><span class="project-title" style="color:#4CAF50;font-weight:bold;font-size:1.2em;">ANIBUD - Wildlife Conservation App</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> Flutter, Firebase, Google Maps API, TensorFlow Lite<br><br>• Cross-platform mobile app with offline-capable location tracking (<span style="color:#4CAF50;font-weight:bold;"><5% data loss</span>)<br>• Custom image recognition system with <span style="color:#4CAF50;font-weight:bold;">85% match accuracy</span><br>• Optimized for <span style="color:#4CAF50;font-weight:bold;">100+ simultaneous reports</span> with <span style="color:#4CAF50;font-weight:bold;"><2s response time</span><br>• <span style="color:#FF9800;font-weight:bold;">🏅 Won 1st place</span> among 50+ teams at MLH StatusCode0 Hackathon<br><a href="https://github.com/harsh-5401/Anibud" target="_blank" style="display:inline-block;margin-top:10px;background:#4CAF50;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;">View on GitHub</a></div><div class="project-item" style="padding:15px;border-left:4px solid #FF9800;background:rgba(255,152,0,0.1);"><span class="project-title" style="color:#FF9800;font-weight:bold;font-size:1.2em;">3D Interactive Space Portfolio</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> Three.js, JavaScript, HTML5/CSS3<br><br>• Immersive 3D space-themed portfolio with interactive planetary navigation<br>• Custom shader implementation for realistic planet rendering and atmospheric effects<br>• Responsive design with keyboard, mouse, and touch controls for seamless exploration</div>'
+        info: '<strong>🏆 Featured Projects</strong><br><br><div class="project-item" style="margin-bottom:20px;padding:15px;border-left:4px solid #2196F3;background:rgba(33,150,243,0.1);"><span class="project-title" style="color:#2196F3;font-weight:bold;font-size:1.2em;">E-Learning Platform (StudyNotion)</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> React.js, Node.js, Express.js, MongoDB<br><br>• Complete MERN stack platform supporting <span style="color:#4CAF50;font-weight:bold;">1000+ concurrent users</span><br>• Implemented secure JWT authentication with <span style="color:#4CAF50;font-weight:bold;">100% protection</span> against common vulnerabilities<br>• Integrated Razorpay payment gateway with <span style="color:#4CAF50;font-weight:bold;">1.2s average checkout time</span><br>• Achieved <span style="color:#4CAF50;font-weight:bold;">95+ Lighthouse score</span> and <span style="color:#4CAF50;font-weight:bold;">65% faster</span> media loading times<br><a href="https://github.com/harsh-5401/Megaproject-frontent-backend-Public" target="_blank" style="display:inline-block;margin-top:10px;background:#2196F3;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;">View on GitHub</a></div><div class="project-item" style="margin-bottom:20px;padding:15px;border-left:4px solid #4CAF50;background:rgba(76,175,80,0.1);"><span class="project-title" style="color:#4CAF50;font-weight:bold;font-size:1.2em;">ANIBUD - Wildlife Conservation App</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> Flutter, Firebase, Google Maps API, TensorFlow Lite<br><br>• Cross-platform mobile app with offline-capable location tracking (<span style="color:#4CAF50;font-weight:bold;"><5% data loss</span>)<br>• Custom image recognition system with <span style="color:#4CAF50;font-weight:bold;">85% match accuracy</span><br>• Optimized for <span style="color:#4CAF50;font-weight:bold;">100+ simultaneous reports</span> with <span style="color:#4CAF50;font-weight:bold;"><2s response time</span><br>• <span style="color:#FF9800;font-weight:bold;">🏅 Won 1st place</span> among 50+ teams at MLH StatusCode0 Hackathon<br><a href="https://github.com/harsh-5401/Anibud" target="_blank" style="display:inline-block;margin-top:10px;background:#4CAF50;color:white;padding:5px 10px;border-radius:3px;text-decoration:none;">View on GitHub</a></div><div class="project-item" style="padding:15px;border-left:4px solid #FF9800;background:rgba(255,152,0,0.1);"><span class="project-title" style="color:#FF9800;font-weight:bold;font-size:1.2em;">3D Interactive Space Portfolio</span><br><span style="color:#FF9800;font-weight:bold;">Tech Stack:</span> React.js, Three.js, JavaScript, TailwindCSS<br><br>• Immersive 3D space-themed portfolio with interactive planetary navigation<br>• Custom shader implementation for realistic planet rendering and atmospheric effects<br>• Responsive design with keyboard, mouse, and touch controls for seamless exploration</div>'
     },
     'Services': {
         radius: 'Ringed Planet',
@@ -593,12 +596,12 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         '<div style="flex:1;min-width:45%;background:rgba(121,85,72,0.1);padding:12px;border-radius:5px;border-left:3px solid #795548;margin-bottom:10px;"><span style="color:#795548;font-weight:bold;">Database Architecture</span><br>Schema design and query optimization</div>' + 
         '</div>'
     },
-    'Testimonials': {
+    'Achievements': {
         radius: 'Tilted Planet',
-        tilt: 'Testimonials',
-        rotation: 'Client Feedback',
-        orbit: 'Reviews',
-        distance: 'Endorsements',
+        tilt: 'Achievements',
+        rotation: 'Recognition',
+        orbit: 'Accomplishments',
+        distance: 'Awards',
         moons: 'Success Stories',
         info: '<strong>🏅 Leadership & Achievements</strong><br><br><div style="background:rgba(33,150,243,0.1);padding:15px;border-radius:5px;margin-bottom:15px;border-left:4px solid #2196F3;"><span style="color:#2196F3;font-weight:bold;font-size:1.1em;">Peer Mentor - Programming Club</span> (2023-2024)<br><br>Led <span style="color:#FF9800;font-weight:bold;">10+ technical workshops</span> on web development, training <span style="color:#4CAF50;font-weight:bold;">60+ students</span> and creating comprehensive learning materials. Workshops covered React.js, Node.js, and full-stack development principles, with consistently positive participant feedback.</div><div style="background:rgba(76,175,80,0.1);padding:15px;border-radius:5px;margin-bottom:15px;border-left:4px solid #4CAF50;"><span style="color:#4CAF50;font-weight:bold;font-size:1.1em;">Codathon Finalist</span> (2022)<br><br>Ranked in the <span style="color:#FF9800;font-weight:bold;">top 5%</span> among 200 participants in algorithmic programming contest. Successfully solved <span style="color:#FF9800;font-weight:bold;">8/10 advanced DSA problems</span>, demonstrating strong algorithmic thinking and optimization skills.</div><div style="background:rgba(255,152,0,0.1);padding:15px;border-radius:5px;border-left:4px solid #FF9800;"><span style="color:#FF9800;font-weight:bold;font-size:1.1em;">Inter-IIIT Cricket Tournament</span> (2023)<br><br>Demonstrated leadership as team captain, guiding our institute to a <span style="color:#4CAF50;font-weight:bold;">Top 5 finish</span> among 15 competing institutes. Showcased strategic planning, team coordination, and performance under pressure.</div>'
     },
@@ -643,10 +646,10 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         info: '<strong>📲 Let\'s Connect</strong><br><br><div style="text-align:center;margin-bottom:20px;"><div style="display:inline-block;background:#4CAF50;color:white;padding:12px 20px;border-radius:30px;font-weight:bold;margin-bottom:20px;"><span style="margin-right:8px;">🚀</span>Available for Exciting Tech Opportunities</div></div><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;">' +
         '<a href="mailto:Harshsingh200777@gmail.com" class="contact-link" style="text-decoration:none;flex:1;min-width:200px;background:rgba(244,67,54,0.1);padding:15px;border-radius:8px;text-align:center;border:1px solid rgba(244,67,54,0.3);color:#F44336;font-weight:bold;"><span style="font-size:24px;display:block;margin-bottom:5px;">📧</span>Harshsingh200777@gmail.com</a>' +
         '<a href="https://linkedin.com/in/harsh-dhakar-fullstack" target="_blank" class="contact-link" style="text-decoration:none;flex:1;min-width:200px;background:rgba(33,150,243,0.1);padding:15px;border-radius:8px;text-align:center;border:1px solid rgba(33,150,243,0.3);color:#2196F3;font-weight:bold;"><span style="font-size:24px;display:block;margin-bottom:5px;">🔗</span>LinkedIn Profile</a>' +
-        '<a href="https://github.com/harsh-5401" target="_blank" class="contact-link" style="text-decoration:none;flex:1;min-width:200px;background:#;padding:15px;border-radius:8px;text-align:center;border:1px solid rgba(33,33,33,0.3);color:#333;font-weight:bold;"><span style="font-size:24px;display:block;margin-bottom:5px;">💻</span>GitHub: @harsh-5401</a>' +
+        '<a href="https://github.com/harsh-5401" target="_blank" class="contact-link" style="text-decoration:none;flex:1;min-width:200px;background:rgba(102,51,153,0.1);padding:15px;border-radius:8px;text-align:center;border:1px solid rgba(102,51,153,0.3);color:#663399;font-weight:bold;"><span style="font-size:24px;display:block;margin-bottom:5px;">💻</span>GitHub: @harsh-5401</a>' +
         '</div>' +
         '<p style="text-align:center;margin-top:20px;">I\'m currently leading the Tech at Wisit Digital with a mission to revolutionize how the world hires with AI.<br>Feel free to connect with me for all things tech or just to say hello!<br><br><span style="color:#4CAF50;font-weight:bold;">Let\'s shape the future of tech together. 🌟</span></p>' +
-        '<div style="text-align:center;margin-top:20px;"><a href="/resume.pdf" download class="resume-button" style="background:#FF9800;"><span style="margin-right:8px;">📄</span>Download Full Resume</a></div>'
+        '<div style="text-align:center;margin-top:20px;"><a href="' + RESUME_URL + '" target="_blank" class="resume-button" style="background:#FF9800;"><span style="margin-right:8px;">📄</span>View Full Resume</a></div>'
     }
 };
 
@@ -742,7 +745,7 @@ function highlightPlanet(planetName, highlight) {
     case 'Experience': targetPlanet = mars; break;
     case 'Projects': targetPlanet = jupiter; break;
     case 'Services': targetPlanet = saturn; break;
-    case 'Testimonials': targetPlanet = uranus; break;
+    case 'Achievements': targetPlanet = uranus; break;
     case 'Interests': targetPlanet = neptune; break;
     case 'Contact': targetPlanet = pluto; break;
   }
@@ -773,7 +776,7 @@ function navigateToPlanet(planetName) {
     case 'Experience': targetPlanet = mars; break;
     case 'Projects': targetPlanet = jupiter; break;
     case 'Services': targetPlanet = saturn; break;
-    case 'Testimonials': targetPlanet = uranus; break;
+    case 'Achievements': targetPlanet = uranus; break;
     case 'Interests': targetPlanet = neptune; break;
     case 'Contact': targetPlanet = pluto; break;
   }
@@ -948,7 +951,7 @@ function setupKeyboardNavigation() {
   // Current focused planet index
   let currentPlanetIndex = -1; // -1 means no planet is focused
   const planets = [mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto];
-  const planetNames = ['About Me', 'Education', 'Skills', 'Experience', 'Projects', 'Services', 'Testimonials', 'Interests', 'Contact'];
+  const planetNames = ['About Me', 'Education', 'Skills', 'Experience', 'Projects', 'Services', 'Achievements', 'Interests', 'Contact'];
   
   // Handle keyboard navigation
   document.addEventListener('keydown', function(event) {

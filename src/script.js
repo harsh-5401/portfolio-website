@@ -8,7 +8,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 
 // Resume URL constant - Edit this to update the resume link throughout the portfolio
-const RESUME_URL = "https://drive.google.com/file/d/1m2ifgR-YQUDx3pHBJ7GTNUuzWHl0cOMY/view?usp=sharing";
+// const RESUME_URL = "https://drive.google.com/file/d/1m2ifgR-YQUDx3pHBJ7GTNUuzWHl0cOMY/view?usp=sharing";
+const RESUME_URL = "https://drive.google.com/file/d/1vFdrsDHfSbcRYr0cunPovpOGybRZaemK/view";
+
 
 import bgTexture1 from '/images/1.jpg';
 import bgTexture2 from '/images/2.jpg';

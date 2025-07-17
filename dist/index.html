@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Dhakar | Space Portfolio</title>
+    
+    <style>
+        #gui-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/index-74e63891.js"></script>
+  <link rel="stylesheet" href="./assets/index-93fabff6.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Harsh Dhakar</h1>
+        <p class="subtitle"><span class="highlight">AI & ML Engineer</span> | <span class="accent">Full Stack Developer</span></p>
+    </div>
+    <div id="instructions">
+        <p>Click on any planet to explore different sections of my portfolio</p>
+    </div>
+    <div id="keyboard-controls">
+        <div class="key-hint">
+            <span class="key">←</span><span class="key">→</span> Navigate planets
+        </div>
+        <div class="key-hint">
+            <span class="key">ESC</span> Return to overview
+        </div>
+        <div class="key-hint touchpad-hint">
+            <span class="touchpad-icon">⇑⇓</span> Scroll to navigate
+        </div>
+    </div>
+    <div id="planet-nav">
+        <h3>Portfolio Sections</h3>
+        <ul>
+            <li data-planet="About Me"><span class="planet-icon" style="color: #9c9c9c;">●</span> About Me</li>
+            <li data-planet="Education"><span class="planet-icon" style="color: #e8cda9;">●</span> Education</li>
+            <li data-planet="Skills"><span class="planet-icon" style="color: #6b93d6;">●</span> Skills</li>
+            <li data-planet="Experience"><span class="planet-icon" style="color: #c1440e;">●</span> Experience</li>
+            <li data-planet="Projects"><span class="planet-icon" style="color: #e3a857;">●</span> Projects</li>
+            <li data-planet="Services"><span class="planet-icon" style="color: #e9ba70;">●</span> Services</li>
+            <li data-planet="Achievements"><span class="planet-icon" style="color: #9cc1e0;">●</span> Achievements</li>
+            <li data-planet="Interests"><span class="planet-icon" style="color: #5b5ddf;">●</span> Interests</li>
+            <li data-planet="Contact"><span class="planet-icon" style="color: #ccc2b3;">●</span> Contact</li>
+        </ul>
+    </div>
+    <div id="gui-container"></div>
+    <div></div>
+    <div id="planetInfo" class="planet-info">
+        <div class="planet-info-content">
+            <span class="close-btn" onclick="closeInfo()">&times;</span>
+            <h2 id="planetName"></h2>
+            <p id="planetDetails"></p>
+        </div>
+    </div>
+</body>
+</html>

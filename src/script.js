@@ -1030,6 +1030,17 @@ function setupKeyboardNavigation() {
   }, false);
   
   function handleSwipe() {
+    // Check if planet info panel is open - don't navigate when info is displayed
+    const planetInfoPanel = document.getElementById('planetInfo');
+    if (planetInfoPanel && planetInfoPanel.style.display === 'block') {
+      return; // Skip navigation when info panel is open
+    }
+    
+    // Check if we're currently zooming to a planet
+    if (isMovingTowardsPlanet || isZoomingOut) {
+      return; // Don't navigate during camera transitions
+    }
+    
     const horizontalDiff = touchEndX - touchStartX;
     const verticalDiff = touchEndY - touchStartY;
     

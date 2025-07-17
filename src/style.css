@@ -34,25 +34,72 @@ body {
     position: fixed;
     top: 10px;
     left: 10px;
-    z-index: 20; /* Keep the increased z-index to ensure it's above planet info */
+    z-index: 20;
     color: white;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     max-width: 40%;
-    background-color: transparent; /* Remove background color */
-    padding: 0; /* Remove padding */
-    border-radius: 0; /* Remove border radius */
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+#header:hover {
+    transform: scale(1.05);
 }
 
 #header h1 {
     margin: 0;
     font-size: 2.5em;
     color: white;
+    text-shadow: 0 0 15px rgba(100, 217, 255, 0.8), 0 0 25px rgba(70, 200, 255, 0.5);
+    animation: glow 3s ease-in-out infinite alternate, pulse 6s ease-in-out infinite;
+    cursor: default;
 }
 
 .subtitle {
     margin-top: 5px;
     font-size: 1.2em;
     color: #ccc;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    animation: fadeInSlide 1.5s ease-out;
+    opacity: 0.9;
+}
+
+.subtitle .highlight {
+    color: #64D9FF;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgba(100, 217, 255, 0.7);
+    animation: colorPulse 4s infinite alternate;
+}
+
+.subtitle .accent {
+    color: #FF9800;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgba(255, 152, 0, 0.7);
+    animation: colorPulse 4s infinite alternate-reverse;
+}
+
+@keyframes colorPulse {
+    0% { color: #64D9FF; text-shadow: 0 0 12px rgba(100, 217, 255, 0.7); }
+    50% { color: #9C27B0; text-shadow: 0 0 12px rgba(156, 39, 176, 0.7); }
+    100% { color: #4CAF50; text-shadow: 0 0 12px rgba(76, 175, 80, 0.7); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(100, 217, 255, 0.6), 0 0 20px rgba(100, 217, 255, 0.3); }
+    100% { text-shadow: 0 0 20px rgba(100, 217, 255, 0.9), 0 0 30px rgba(70, 200, 255, 0.7), 0 0 40px rgba(50, 180, 255, 0.4); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes fadeInSlide {
+    0% { transform: translateX(-10px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 0.9; }
 }
 
 .planet-info {

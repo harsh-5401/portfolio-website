@@ -1065,23 +1065,45 @@ function setupKeyboardNavigation() {
   
   // Track wheel events for touchpad navigation
   document.addEventListener('wheel', function(event) {
+    // Only handle wheel events if a planet info panel is not open
+    const planetInfoPanel = document.getElementById('planetInfo');
+    if (planetInfoPanel && planetInfoPanel.style.display === 'block') {
+      return; // Don't navigate planets when info panel is open
+    }
+    
+    // Check if we're currently zooming to a planet
+    if (isMovingTowardsPlanet || isZoomingOut) {
+      return; // Don't navigate during camera transitions
+    }
+    
+    // Add a flag to track if we should enable wheel navigation
+    // This can be toggled via a UI setting if needed
+    const enableWheelNavigation = false; // Set to false to disable wheel navigation completely
+    
+    if (!enableWheelNavigation) {
+      return; // Skip wheel navigation if disabled
+    }
+    
     // Debounce wheel events to prevent too rapid navigation
     if (wheelTimeout) clearTimeout(wheelTimeout);
     
+    // Require more significant scroll to trigger navigation (increased threshold)
+    const scrollThreshold = 50; // Higher threshold to prevent accidental triggers
+    
     wheelTimeout = setTimeout(() => {
-      // Determine direction based on deltaY
-      if (event.deltaY > 20) {
+      // Determine direction based on deltaY with higher threshold
+      if (event.deltaY > scrollThreshold) {
         // Scroll down - next planet
         currentPlanetIndex = (currentPlanetIndex + 1) % planets.length;
         navigateToPlanet(planetNames[currentPlanetIndex]);
         showKeyboardFeedback('right');
-      } else if (event.deltaY < -20) {
+      } else if (event.deltaY < -scrollThreshold) {
         // Scroll up - previous planet
         currentPlanetIndex = (currentPlanetIndex - 1 + planets.length) % planets.length;
         navigateToPlanet(planetNames[currentPlanetIndex]);
         showKeyboardFeedback('left');
       }
-    }, 150); // Debounce time in ms
+    }, 250); // Longer debounce time to prevent accidental triggers
   }, { passive: true });
   
   // Update current planet index when planet is selected through other means

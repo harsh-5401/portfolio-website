@@ -1144,8 +1144,9 @@ function setupKeyboardNavigation() {
 let wheelTimeout;
 
 // Initialize planet navigation after everything else is loaded
-loadAsteroids('/asteroids/asteroidPack.glb', 1000, 130, 160);
-loadAsteroids('/asteroids/asteroidPack.glb', 3000, 352, 370);
+loadAsteroids('/asteroids/asteroidPack.glb', 1000, 130, 160); // Inner asteroid belt
+loadAsteroids('/asteroids/asteroidPack.glb', 2000, 155, 190); // Main asteroid belt between Mars and Jupiter
+loadAsteroids('/asteroids/asteroidPack.glb', 3000, 352, 370); // Outer asteroid belt
 setupPlanetNavigation();
 setupKeyboardNavigation(); // Add this line
 animate();

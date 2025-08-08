@@ -10,7 +10,7 @@ import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 // Resume URL constant - Edit this to update the resume link throughout the portfolio
 // const RESUME_URL = "https://drive.google.com/file/d/1m2ifgR-YQUDx3pHBJ7GTNUuzWHl0cOMY/view?usp=sharing";
 // const RESUME_URL = "https://drive.google.com/file/d/1vFdrsDHfSbcRYr0cunPovpOGybRZaemK/view";
-const RESUME_URL = "https://drive.google.com/file/d/1JrODx3qwfpD1aQHpK-j3sFso68WtBwrB/view?usp=sharing";
+const RESUME_URL = "https://drive.google.com/file/d/1Q7lrURB_bK5FLqGMS3_6gYK-riN7jd-W/view?usp=sharing";
 
 
 import bgTexture1 from '/images/1.jpg';

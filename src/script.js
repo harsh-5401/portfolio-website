@@ -9,7 +9,8 @@ import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 
 // Resume URL constant - Edit this to update the resume link throughout the portfolio
 // const RESUME_URL = "https://drive.google.com/file/d/1m2ifgR-YQUDx3pHBJ7GTNUuzWHl0cOMY/view?usp=sharing";
-const RESUME_URL = "https://drive.google.com/file/d/1vFdrsDHfSbcRYr0cunPovpOGybRZaemK/view";
+// const RESUME_URL = "https://drive.google.com/file/d/1vFdrsDHfSbcRYr0cunPovpOGybRZaemK/view";
+const RESUME_URL = "https://drive.google.com/file/d/1kFaDwVRWjHTYg_K6ytQ8ECbi6etEM9tT/view?usp=sharing";
 
 
 import bgTexture1 from '/images/1.jpg';
@@ -588,12 +589,11 @@ const pluto = new createPlanet('Contact', 1, 350, 57, plutoTexture)
         distance: 'Capabilities',
         moons: 'Expertise Areas',
         info: '<strong>🛠️ Specialized Services</strong><br><br><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:15px;">' + 
-        '<div style="flex:1;min-width:45%;background:rgba(156,39,176,0.1);padding:12px;border-radius:5px;border-left:3px solid #9C27B0;margin-bottom:10px;"><span style="color:#9C27B0;font-weight:bold;">LLM & Generative AI Solutions</span><br>Custom RAG systems, LLM fine-tuning, and AI assistants</div>' + 
+        '<div style="flex:1;min-width:45%;background:rgba(156,39,176,0.1);padding:12px;border-radius:5px;border-left:3px solid #9C27B0;margin-bottom:10px;"><span style="color:#9C27B0;font-weight:bold;">LLM & Generative AI Solutions</span><br>RAG systems, LLM fine-tuning, and AI assistants</div>' + 
         '<div style="flex:1;min-width:45%;background:rgba(33,150,243,0.1);padding:12px;border-radius:5px;border-left:3px solid #2196F3;margin-bottom:10px;"><span style="color:#2196F3;font-weight:bold;">Full-Stack Development</span><br>Complete solutions with React.js, Node.js, and MongoDB</div>' + 
         '<div style="flex:1;min-width:45%;background:rgba(244,67,54,0.1);padding:12px;border-radius:5px;border-left:3px solid #F44336;margin-bottom:10px;"><span style="color:#F44336;font-weight:bold;">Computer Vision Systems</span><br>Object detection, image recognition, and video analysis</div>' + 
         '<div style="flex:1;min-width:45%;background:rgba(76,175,80,0.1);padding:12px;border-radius:5px;border-left:3px solid #4CAF50;margin-bottom:10px;"><span style="color:#4CAF50;font-weight:bold;">Frontend Excellence</span><br>Responsive UI/UX with React and TailwindCSS</div>' + 
         '<div style="flex:1;min-width:45%;background:rgba(0,150,136,0.1);padding:12px;border-radius:5px;border-left:3px solid #009688;margin-bottom:10px;"><span style="color:#009688;font-weight:bold;">Vector Database Implementation</span><br>ChromaDB, FAISS, and Pinecone integration</div>' + 
-        '<div style="flex:1;min-width:45%;background:rgba(63,81,181,0.1);padding:12px;border-radius:5px;border-left:3px solid #3F51B5;margin-bottom:10px;"><span style="color:#3F51B5;font-weight:bold;">Technical Leadership</span><br>Team guidance and project management</div>' + 
         '<div style="flex:1;min-width:45%;background:rgba(121,85,72,0.1);padding:12px;border-radius:5px;border-left:3px solid #795548;margin-bottom:10px;"><span style="color:#795548;font-weight:bold;">ML Model Deployment</span><br>FastAPI, LangServe, and Streamlit implementations</div>' + 
         '</div>'
     },

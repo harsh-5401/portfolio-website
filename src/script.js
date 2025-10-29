@@ -42,13 +42,128 @@ import uraRingTexture from '/images/uranus_ring.png';
 import neptuneTexture from '/images/neptune.jpg';
 import plutoTexture from '/images/plutomap.jpg';
 
+// ******  AUDIO FILES CONFIGURATION  ******
+// Add more audio files here as needed
+const audioFiles = {
+  'Space Ambient': '/audio/space-sound-hi-109577.mp3',
+  // Add more tracks here:
+  // 'Track Name': '/audio/filename.mp3',
+};
+
 // ******  SETUP  ******
 console.log("Create the scene");
 const scene = new THREE.Scene();
 
+// ******  BACKGROUND AUDIO SETUP  ******
+console.log("Setting up background audio");
+const listener = new THREE.AudioListener();
+const backgroundMusic = new THREE.Audio(listener);
+const audioLoader = new THREE.AudioLoader();
+
+let audioLoaded = false;
+let currentAudioFile = Object.values(audioFiles)[0]; // Default to first audio file
+
+// Function to load and play audio
+function loadAndPlayAudio(audioPath) {
+  audioLoaded = false;
+  
+  // Stop current audio if playing
+  if (backgroundMusic.isPlaying) {
+    backgroundMusic.stop();
+  }
+  
+  console.log("Loading audio:", audioPath);
+  
+  audioLoader.load(
+    audioPath, 
+    function(buffer) {
+      console.log("Audio loaded successfully!");
+      backgroundMusic.setBuffer(buffer);
+      backgroundMusic.setLoop(true);
+      backgroundMusic.setVolume(0.3); // Maximum volume
+      audioLoaded = true;
+      currentAudioFile = audioPath;
+      
+      // Resume AudioContext if suspended and play
+      if (listener.context.state === 'suspended') {
+        listener.context.resume().then(() => {
+          console.log("AudioContext resumed!");
+          backgroundMusic.play();
+          console.log("Background music started playing at maximum volume!");
+        });
+      } else {
+        try {
+          backgroundMusic.play();
+          console.log("Background music started playing at maximum volume!");
+        } catch(error) {
+          console.log("Autoplay blocked. Audio will play on first user interaction.", error);
+        }
+      }
+    },
+    function(xhr) {
+      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    },
+    function(error) {
+      console.error("Error loading audio:", error);
+    }
+  );
+}
+
+// Load the default audio file
+loadAndPlayAudio(currentAudioFile);
+
+// Ensure audio plays on any user interaction (browsers may block autoplay)
+function startAudio() {
+  if (audioLoaded && !backgroundMusic.isPlaying) {
+    // Resume AudioContext if it's suspended
+    if (listener.context.state === 'suspended') {
+      listener.context.resume().then(() => {
+        console.log("AudioContext resumed!");
+        backgroundMusic.play();
+        console.log("Background music started playing!");
+      });
+    } else {
+      backgroundMusic.play();
+      console.log("Background music started playing!");
+    }
+    
+    // Remove event listeners after successful play
+    window.removeEventListener('click', startAudio);
+    window.removeEventListener('keydown', startAudio);
+    window.removeEventListener('touchstart', startAudio);
+  }
+}
+
+// Try to start audio on various user interactions
+window.addEventListener('click', startAudio);
+window.addEventListener('keydown', startAudio);
+window.addEventListener('touchstart', startAudio);
+
+// Setup audio selector
+function setupAudioSelector() {
+  const audioSelector = document.getElementById('audio-selector');
+  if (audioSelector) {
+    // Populate selector with audio options
+    Object.keys(audioFiles).forEach(trackName => {
+      const option = document.createElement('option');
+      option.value = audioFiles[trackName];
+      option.textContent = trackName;
+      audioSelector.appendChild(option);
+    });
+    
+    // Handle audio selection change
+    audioSelector.addEventListener('change', function() {
+      const selectedAudio = this.value;
+      console.log("User selected audio:", selectedAudio);
+      loadAndPlayAudio(selectedAudio);
+    });
+  }
+}
+
 console.log("Create a perspective projection camera");
 var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
 camera.position.set(-175, 115, 5);
+camera.add(listener);
 
 console.log("Create the renderer");
 const renderer = new THREE.WebGL1Renderer();
@@ -1149,6 +1264,7 @@ loadAsteroids('/asteroids/asteroidPack.glb', 2000, 155, 190); // Main asteroid b
 loadAsteroids('/asteroids/asteroidPack.glb', 3000, 352, 370); // Outer asteroid belt
 setupPlanetNavigation();
 setupKeyboardNavigation(); // Add this line
+setupAudioSelector(); // Initialize audio selector
 animate();
 
 window.addEventListener('mousemove', onMouseMove, false);

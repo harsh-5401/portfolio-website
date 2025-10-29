@@ -45,7 +45,7 @@ import plutoTexture from '/images/plutomap.jpg';
 // ******  AUDIO FILES CONFIGURATION  ******
 // Add more audio files here as needed
 const audioFiles = {
-  'Space Ambient': '/audio/space-sound-hi-109577.mp3',
+  'Space Ambient': '/audio/space_sound.mp3',
   // Add more tracks here:
   // 'Track Name': '/audio/filename.mp3',
 };
@@ -80,7 +80,7 @@ function loadAndPlayAudio(audioPath) {
       console.log("Audio loaded successfully!");
       backgroundMusic.setBuffer(buffer);
       backgroundMusic.setLoop(true);
-      backgroundMusic.setVolume(0.3); // Maximum volume
+      backgroundMusic.setVolume(0.5); // Maximum volume
       audioLoaded = true;
       currentAudioFile = audioPath;
       

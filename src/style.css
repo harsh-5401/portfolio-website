@@ -63,28 +63,27 @@ body {
     font-size: 1.2em;
     color: #ccc;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    animation: fadeInSlide 1.5s ease-out;
+    animation: fadeInSlide 1.5s ease-out, pulse 6s ease-in-out infinite;
     opacity: 0.9;
 }
 
 .subtitle .highlight {
-    color: #64D9FF;
+    color: #FF9800;
     font-weight: bold;
-    text-shadow: 0 0 12px rgba(100, 217, 255, 0.7);
-    animation: colorPulse 4s infinite alternate;
+    text-shadow: 0 0 12px rgba(255, 152, 0, 0.7);
+    animation: glowOrange 3s ease-in-out infinite alternate;
 }
 
 .subtitle .accent {
     color: #FF9800;
     font-weight: bold;
     text-shadow: 0 0 12px rgba(255, 152, 0, 0.7);
-    animation: colorPulse 4s infinite alternate-reverse;
+    animation: glowOrange 3s ease-in-out infinite alternate;
 }
 
-@keyframes colorPulse {
-    0% { color: #64D9FF; text-shadow: 0 0 12px rgba(100, 217, 255, 0.7); }
-    50% { color: #9C27B0; text-shadow: 0 0 12px rgba(156, 39, 176, 0.7); }
-    100% { color: #4CAF50; text-shadow: 0 0 12px rgba(76, 175, 80, 0.7); }
+@keyframes glowOrange {
+    0% { text-shadow: 0 0 10px rgba(255, 152, 0, 0.6), 0 0 20px rgba(255, 152, 0, 0.3); }
+    100% { text-shadow: 0 0 20px rgba(255, 152, 0, 0.9), 0 0 30px rgba(255, 120, 0, 0.7), 0 0 40px rgba(255, 100, 0, 0.4); }
 }
 
 @keyframes glow {
